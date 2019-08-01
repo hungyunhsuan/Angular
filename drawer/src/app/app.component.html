@@ -1,0 +1,31 @@
+
+<div class="bmd-layout-container bmd-drawer-f-l">
+  <input type="checkbox" id="drawer-toggle" name="drawer-toggle" />
+  <label for="drawer-toggle" id="drawer-toggle-label"></label>
+
+  <header>DrawerTest</header>
+  <nav id="drawer">
+    <ul id="ulgroup">
+      <li><a class="drawer-brand" href="#">Menu</a></li>
+      <li><a class="drawer-menu-item" name="page" (click)="onOpenTabs($event)" routerLink="page1" routerLinkActive="active">page1</a></li>
+      <li><a class="drawer-menu-item" name="page" (click)="onOpenTabs($event)" routerLink="page2" routerLinkActive="active">page2</a></li>
+      <li><a class="drawer-menu-item" name="page" (click)="onOpenTabs($event)" routerLink="page3" routerLinkActive="active">page3</a></li>
+    </ul>
+  </nav>
+
+  <div id="page-content">
+    <ul class="nav nav-tabs">
+      <li class="active"  *ngFor="let tab of selectedFeatures">
+        <span>
+          <a id= "a" routerLink="{{tab}}" routerLinkActive="active">{{tab}}</a> &nbsp;
+          <button type="button" class="close" aria-label="Close" (click)="onCloseTabs(tab)">
+            <span aria-hidden="true" id ="closeicon">×</span>
+          </button>
+      </span>
+      </li>
+    </ul>
+  <br/>
+      <router-outlet></router-outlet>
+  </div>
+</div>
+
